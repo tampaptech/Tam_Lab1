@@ -20,9 +20,16 @@ namespace Tam_Lab1.Controllers
         }
 
         // GET: Tam_Employee
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Tam_Employee.ToListAsync());
+            var employees = from m in _context.Tam_Employee
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                employees = employees.Where(s => s.Username.Contains(searchString));
+            }
+            return View(await employees.ToListAsync());
         }
 
         // GET: Tam_Employee/Details/5
