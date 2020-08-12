@@ -12,7 +12,8 @@ namespace Tam_Lab1.Models
         public int Id { get; set; }
 
         public string Username { get; set; }
-       
+        
+        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
     
         public string FirstName { get; set; }
