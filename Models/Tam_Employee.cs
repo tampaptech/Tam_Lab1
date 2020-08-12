@@ -11,15 +11,24 @@ namespace Tam_Lab1.Models
     { 
         public int Id { get; set; }
 
+        [StringLength(30, MinimumLength = 5)]
+        [Required]
         public string Username { get; set; }
         
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
-    
-        public string FirstName { get; set; }
-     
-        public string LastName { get; set; }
 
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+        [Required]
+        [StringLength(30)]
+        public string FirstName { get; set; }
+
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+        [Required]
+        [StringLength(30)]
+        public string LastName { get; set; }
+        
+        [Required]
         public string Gender { get; set; }
 
     }
