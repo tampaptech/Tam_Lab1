@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Tam_Lab1.Data;
 
 namespace Tam_Lab1
 {
@@ -24,6 +26,8 @@ namespace Tam_Lab1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<Tam_EmployeeContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("Tam_Lab1_conn")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
