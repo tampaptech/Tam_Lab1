@@ -25,9 +25,13 @@ namespace Tam_Lab1.Controllers
             var employees = from m in _context.Tam_Employee
                          select m;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
-                employees = employees.Where(s => s.Username.Contains(searchString));
+                var lowerSearchString = searchString.ToLower();
+                employees = employees.Where(s => 
+                s.Username.ToLower().Contains(lowerSearchString) ||
+                s.FirstName.ToLower().Contains(lowerSearchString) || 
+                s.LastName.ToLower().Contains(lowerSearchString));
             }
             return View(await employees.ToListAsync());
         }
