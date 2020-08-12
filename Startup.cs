@@ -54,7 +54,7 @@ namespace Tam_Lab1
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Tam_Employee}/{action=Index}/{id?}");
             });
         }
     }
