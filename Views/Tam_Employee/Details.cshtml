@@ -38,8 +38,7 @@
             @Html.DisplayNameFor(model => model.Gender)
         </dt>
         <dd class="col-sm-10">
-            Male:   @Html.RadioButtonFor(model =>  model.Gender, "Male")
-            Female: @Html.RadioButtonFor(model => model.Gender, "Female")
+            @Html.DisplayFor(model => model.Gender)
         </dd>
     </dl>
 </div>
